@@ -1,0 +1,338 @@
+/* ----------------- Variables ----------------- */
+:root {
+    --marron: #A1866F;
+    --beige: #F5EDE3;
+    --morado: #C3A6D9;
+    --texto: #333;
+}
+
+/* ----------------- Global ----------------- */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--beige);
+    color: var(--texto);
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ----------------- Header / Menú ----------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--marron);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+header .logo img {
+    height: 60px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--beige);
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--morado);
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: var(--morado);
+}
+
+/* ----------------- Portada ----------------- */
+.portada {
+    position: relative;
+    height: 100vh;
+    background: url('images/portada.jpeg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portada .overlay {
+    background-color: rgba(0,0,0,0.35);
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.portada h1 {
+    color: var(--beige);
+    font-size: 3rem;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.btn-reserva {
+    background-color: var(--morado);
+    color: var(--beige);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.btn-reserva:hover {
+    background-color: var(--marron);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* ----------------- Servicios ----------------- */
+#servicios {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 992px) {
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.servicio {
+    background-color: var(--beige);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ----------------- Galería ----------------- */
+#galeria {
+    padding: 50px 5%;
+    text-align: center;
+}
+    .galeria-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
+}
+
+/* Tablet: 2 columnas */
+@media (max-width: 992px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Móvil: 1 columna */
+@media (max-width: 576px) {
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.galeria-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay / Lightbox */
+.lightbox {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ----------------- FAQ ----------------- */
+#faq {
+    padding: 50px 5%;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    background-color: var(--marron);
+    color: var(--beige);
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background-color: white;
+    border-left: 4px solid var(--morado);
+    border-radius: 0 0 8px 8px;
+}
+
+/* ----------------- Contacto ----------------- */
+#contacto {
+    padding: 50px 5%;
+}
+
+.contacto-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+form {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+form button {
+    padding: 12px;
+    background-color: var(--morado);
+    color: var(--beige);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: var(--marron);
+}
+
+.mapa {
+    flex: 1 1 300px;
+}
+
+/* ----------------- Footer ----------------- */
+footer {
+    background-color: var(--marron);
+    color: var(--beige);
+    text-align: center;
+    padding: 25px 5%;
+}
+
+footer a {
+    color: var(--beige);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: var(--morado);
+}
+
+/* ----------------- Botón flotante WhatsApp ----------------- */
+.float-wa {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 100;
+    transition: transform 0.3s ease, filter 0.3s ease; /* animación suave */
+}
+
+
+
+/* Hover: agrandar y oscurecer */
+.float-wa:hover {
+    transform: scale(1.2);          /* 20% más grande */
+    filter: brightness(85%);         /* oscurece un poco */
+    cursor: pointer;
+}
+
