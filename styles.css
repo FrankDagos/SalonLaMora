@@ -125,6 +125,7 @@ nav a:hover {
 }
 
 /* ----------------- Portada ----------------- */
+
 .portada {
   position: relative;
   height: 100vh;
@@ -139,47 +140,31 @@ nav a:hover {
   padding: 40px;
   text-align: center;
   border-radius: 15px;
-  max-width: 800px; /* ancho máximo en escritorio */
-  width: 90%; /* ancho relativo para pantallas más pequeñas */
+  max-width: 800px;
+  width: 90%;
   box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px; /* controla distancia entre h1, h2 y botón */
 }
 
-/* Ajustes para móviles */
-@media (max-width: 768px) {
-  .portada .overlay {
-    padding: 20px; /* menos padding en móvil */
-    width: 90%; /* ocupa la mayoría del ancho pero con margen */
-    max-width: none; /* no limitar demasiado en móvil */
-  }
-
-  .portada h1 {
-    font-size: 2rem; /* ajustar tamaño del título en móvil */
-  }
-
-  .portada h2 {
-    font-size: 1.2rem; /* ajustar tamaño del subtítulo */
-  }
-
-  .btn-reserva {
-    padding: 12px 20px; /* botones más proporcionales */
-    font-size: 1rem;
-  }
-}
-
+/* Títulos y botón */
 .portada h1 {
   color: var(--beige);
   font-size: 3rem;
-  margin-bottom: 15px;
+  margin: 0; /* eliminamos margin para usar row-gap */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .portada h2 {
   color: var(--beige);
   font-size: 1.75rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   font-style: italic;
   font-weight: normal;
-  margin-bottom: 30px;
+  margin: 0; /* eliminamos margin para usar row-gap */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .btn-reserva {
@@ -198,6 +183,28 @@ nav a:hover {
   background-color: var(--marron);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------- Ajustes móviles ----------------- */
+@media (max-width: 768px) {
+  .portada .overlay {
+    padding: 20px;
+    width: 90%;
+    row-gap: 12px; /* menor espacio entre h1, h2 y botón en móvil */
+  }
+
+  .portada h1 {
+    font-size: 2rem;
+  }
+
+  .portada h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn-reserva {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
 }
 
 /* ----------------- Servicios ----------------- */
