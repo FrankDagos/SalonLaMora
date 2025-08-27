@@ -1,54 +1,50 @@
-// FAQ desplegable
-document.querySelectorAll('.faq-question').forEach(item => {
-    item.addEventListener('click', () => {
-        const answer = item.nextElementSibling;
-        const isOpen = answer.style.display === 'block';
+// Selección de elementos
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const navItems = document.querySelectorAll(".nav-links a");
+const header = document.querySelector("header");
 
-        // Abrir/cerrar la respuesta clickeada
-        answer.style.display = isOpen ? 'none' : 'block';
-    });
+// ----- MENÚ HAMBURGUESA -----
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
 });
 
-// Enviar formulario de contacto por mail (usando mailto)
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', function(e) {
+// ----- SCROLL SUAVE CON OFFSET PARA HEADER FIJO -----
+const headerHeight = header.offsetHeight;
+
+navItems.forEach((link) => {
+  link.addEventListener("click", function (e) {
     e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (!target) return;
 
-    const nombre = contactForm.nombre.value;
-    const email = contactForm.email.value;
-    const telefono = contactForm.telefono.value;
-    const consulta = contactForm.consulta.value;
+    const targetPosition = target.offsetTop - headerHeight;
 
-    const subject = encodeURIComponent("Consulta desde página Salón La Mora");
-    const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta:\n${consulta}`);
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
 
-    window.location.href = `mailto:marisadagostino3@hotmail.com?subject=${subject}&body=${body}`;
-
-    // Resetear formulario
-    contactForm.reset();
-});
-
-// Seleccionamos todas las imágenes
-const galeriaImgs = document.querySelectorAll('.galeria-img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const cerrar = document.querySelector('.cerrar');
-
-// Abrir overlay al hacer click
-galeriaImgs.forEach(img => {
-  img.addEventListener('click', () => {
-    lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
+    // Cerrar menú hamburguesa si estaba abierto (móvil)
+    if (navLinks.classList.contains("active")) {
+      navLinks.classList.remove("active");
+    }
   });
 });
 
-// Cerrar overlay
-cerrar.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
+// ----- OCULTAR HEADER AL BAJAR / MOSTRAR AL SUBIR (ESCRITORIO) -----
+let lastScrollTop = 0;
 
-// También se puede cerrar haciendo click fuera de la imagen
-lightbox.addEventListener('click', e => {
-  if(e.target === lightbox) lightbox.style.display = 'none';
-});
+window.addEventListener("scroll", () => {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+  if (scrollTop > lastScrollTop && scrollTop > 100) {
+    // Bajando
+    header.style.top = "-100px";
+  } else {
+    // Subiendo
+    header.style.top = "0";
+  }
+
+  lastScrollTop = scrollTop;
+});

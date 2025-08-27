@@ -1,161 +1,249 @@
 /* ----------------- Variables ----------------- */
 :root {
-    --marron: #A1866F;
-    --beige: #F5EDE3;
-    --morado: #C3A6D9;
-    --texto: #333;
+  --marron: #a1866f;
+  --beige: #f5ede3;
+  --morado: #c3a6d9;
+  --texto: #333;
 }
 
 /* ----------------- Global ----------------- */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--beige);
-    color: var(--texto);
-    margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: var(--beige);
+  color: var(--texto);
+  margin: 0;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 /* ----------------- Header / Menú ----------------- */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: var(--marron);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: var(--marron);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: top 0.3s;
 }
 
 header .logo img {
-    height: 60px;
+  height: 60px;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
-    text-decoration: none;
-    color: var(--beige);
-    font-weight: bold;
-    padding: 5px 0;
-    position: relative;
+  text-decoration: none;
+  color: var(--beige);
+  font-weight: bold;
+  padding: 5px 0;
+  position: relative;
 }
 
 nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--morado);
-    transition: 0.3s;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--morado);
+  transition: 0.3s;
 }
 
 nav a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 nav a:hover {
-    color: var(--morado);
+  color: var(--morado);
+}
+
+/* HAMBURGUESA */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--beige);
+  transition: 0.3s;
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  nav ul {
+    position: fixed; /* menú sobre el contenido */
+    top: 60px; /* justo debajo del header */
+    left: 0;
+    width: 100%;
+    background-color: var(--marron);
+    flex-direction: column;
+    display: none;
+    gap: 0; /* sin demasiado espacio */
+    z-index: 998;
+    border-top: 1px solid var(--beige);
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--beige);
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 12px 0; /* altura más proporcionada */
+    font-size: 1.1rem; /* tamaño de letra más cómodo */
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 999; /* encima del menú */
+  }
 }
 
 /* ----------------- Portada ----------------- */
 .portada {
-    position: relative;
-    height: 100vh;
-    background: url('images/portada.jpeg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  height: 100vh;
+  background: url("images/portada.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .portada .overlay {
-    background-color: rgba(0,0,0,0.35);
-    padding: 40px;
-    text-align: center;
-    border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 40px;
+  text-align: center;
+  border-radius: 15px;
+  max-width: 800px; /* ancho máximo en escritorio */
+  width: 90%; /* ancho relativo para pantallas más pequeñas */
+  box-sizing: border-box;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .portada .overlay {
+    padding: 20px; /* menos padding en móvil */
+    width: 90%; /* ocupa la mayoría del ancho pero con margen */
+    max-width: none; /* no limitar demasiado en móvil */
+  }
+
+  .portada h1 {
+    font-size: 2rem; /* ajustar tamaño del título en móvil */
+  }
+
+  .portada h2 {
+    font-size: 1.2rem; /* ajustar tamaño del subtítulo */
+  }
+
+  .btn-reserva {
+    padding: 12px 20px; /* botones más proporcionales */
+    font-size: 1rem;
+  }
 }
 
 .portada h1 {
-    color: var(--beige);
-    font-size: 3rem;
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  color: var(--beige);
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.portada h2 {
+  color: var(--beige);
+  font-size: 1.75rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: 30px;
 }
 
 .btn-reserva {
-    background-color: var(--morado);
-    color: var(--beige);
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background-color: var(--morado);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn-reserva:hover {
-    background-color: var(--marron);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  background-color: var(--marron);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* ----------------- Servicios ----------------- */
 #servicios {
-    padding: 50px 5%;
-    text-align: center;
+  padding: 50px 5%;
+  text-align: center;
 }
 
 .servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 30px;
 }
 
 @media (max-width: 992px) {
-    .servicios-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 576px) {
-    .servicios-grid {
-        grid-template-columns: 1fr;
-    }
+  .servicios-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .servicio {
-    background-color: var(--beige);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+  background-color: var(--beige);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .servicio:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ----------------- Galería ----------------- */
 #galeria {
-    padding: 50px 5%;
-    text-align: center;
+  padding: 50px 5%;
+  text-align: center;
 }
-    .galeria-grid {
+.galeria-grid {
   display: grid;
   gap: 15px;
   grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
@@ -196,7 +284,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 10000;
@@ -206,7 +294,7 @@ nav a:hover {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .cerrar {
@@ -221,118 +309,116 @@ nav a:hover {
 
 /* ----------------- FAQ ----------------- */
 #faq {
-    padding: 50px 5%;
+  padding: 50px 5%;
 }
 
 .faq-item {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .faq-question {
-    width: 100%;
-    padding: 15px;
-    font-size: 1rem;
-    background-color: var(--marron);
-    color: var(--beige);
-    border: none;
-    border-radius: 8px;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  background-color: var(--marron);
+  color: var(--beige);
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .faq-answer {
-    display: none;
-    padding: 15px;
-    background-color: white;
-    border-left: 4px solid var(--morado);
-    border-radius: 0 0 8px 8px;
+  display: none;
+  padding: 15px;
+  background-color: white;
+  border-left: 4px solid var(--morado);
+  border-radius: 0 0 8px 8px;
 }
 
 /* ----------------- Contacto ----------------- */
 #contacto {
-    padding: 50px 5%;
+  padding: 50px 5%;
 }
 
 .contacto-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 form {
-    flex: 1 1 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-form input, form textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: none;
+form input,
+form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
 }
 
 form button {
-    padding: 12px;
-    background-color: var(--morado);
-    color: var(--beige);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 12px;
+  background-color: var(--morado);
+  color: var(--beige);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 form button:hover {
-    background-color: var(--marron);
+  background-color: var(--marron);
 }
 
 .mapa {
-    flex: 1 1 300px;
+  flex: 1 1 300px;
 }
 
 /* ----------------- Footer ----------------- */
 footer {
-    background-color: var(--marron);
-    color: var(--beige);
-    text-align: center;
-    padding: 25px 5%;
+  background-color: var(--marron);
+  color: var(--beige);
+  text-align: center;
+  padding: 25px 5%;
 }
 
 footer a {
-    color: var(--beige);
-    text-decoration: none;
-    margin: 0 10px;
+  color: var(--beige);
+  text-decoration: none;
+  margin: 0 10px;
 }
 
 footer a:hover {
-    color: var(--morado);
+  color: var(--morado);
 }
 
 /* ----------------- Botón flotante WhatsApp ----------------- */
 .float-wa {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    z-index: 100;
-    transition: transform 0.3s ease, filter 0.3s ease; /* animación suave */
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  z-index: 100;
+  transition: transform 0.3s ease, filter 0.3s ease; /* animación suave */
 }
-
-
 
 /* Hover: agrandar y oscurecer */
 .float-wa:hover {
-    transform: scale(1.2);          /* 20% más grande */
-    filter: brightness(85%);         /* oscurece un poco */
-    cursor: pointer;
+  transform: scale(1.2); /* 20% más grande */
+  filter: brightness(85%); /* oscurece un poco */
+  cursor: pointer;
 }
-
