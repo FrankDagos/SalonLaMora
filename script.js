@@ -95,3 +95,19 @@ cerrar.addEventListener("click", () => {
 lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox) lightbox.style.display = "none";
 });
+//Mostrar mensaje en pantalla
+const form = document.getElementById("contactForm");
+const mensajeExito = document.getElementById("mensajeExito");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevenir envío real para mostrar el mensaje
+
+  // Mostrar el mensaje
+  mensajeExito.style.display = "block";
+
+  // Opcional: ocultar el mensaje después de 3 segundos y limpiar formulario
+  setTimeout(() => {
+    mensajeExito.style.display = "none";
+    form.reset();
+  }, 3000);
+});
