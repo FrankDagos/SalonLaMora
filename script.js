@@ -48,3 +48,50 @@ window.addEventListener("scroll", () => {
 
   lastScrollTop = scrollTop;
 });
+
+// FAQ desplegable
+document.querySelectorAll(".faq-question").forEach((item) => {
+  item.addEventListener("click", () => {
+    const answer = item.nextElementSibling;
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+  });
+});
+
+// Formulario contacto
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const nombre = contactForm.nombre.value;
+  const email = contactForm.email.value;
+  const telefono = contactForm.telefono.value;
+  const consulta = contactForm.consulta.value;
+
+  const subject = encodeURIComponent("Consulta desde página Salón La Mora");
+  const body = encodeURIComponent(
+    `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nConsulta:\n${consulta}`
+  );
+
+  window.location.href = `mailto:marisadagostino3@hotmail.com?subject=${subject}&body=${body}`;
+  contactForm.reset();
+});
+
+// Galería Lightbox
+const galeriaImgs = document.querySelectorAll(".galeria-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const cerrar = document.querySelector(".cerrar");
+
+galeriaImgs.forEach((img) => {
+  img.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+cerrar.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) lightbox.style.display = "none";
+});
