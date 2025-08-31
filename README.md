@@ -16,4 +16,5 @@ El sitio muestra servicios, galería de fotos, preguntas frecuentes y permite co
 - CSS3  
 - JavaScript  
 - Bootstrap 5  
-- Lightbox personalizado  
+- Lightbox personalizado
+- Email.js
