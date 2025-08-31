@@ -12,7 +12,7 @@
       name="keywords"
       content="salón de eventos, La Mora, Mendoza, cumpleaños, casamientos, bautismos, pileta, catering, alquiler de salón"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="src/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
@@ -25,6 +25,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
+   
   </head>
   <body>
     <!-- Botón flotante WhatsApp -->
@@ -39,7 +40,7 @@
     <!-- Header -->
     <header>
       <div class="logo">
-        <img src="images/logo.png" alt="Salón La Mora" />
+        <img src="src/images/logo.png" alt="Salón La Mora" />
       </div>
       <nav>
         <ul class="nav-links">
@@ -92,14 +93,14 @@
     <section id="galeria">
       <h2>Galería</h2>
       <div class="galeria-grid">
-        <img src="images/galeria1.jpeg" alt="Galería 1" class="galeria-img" />
-        <img src="images/galeria2.jpeg" alt="Galería 2" class="galeria-img" />
-        <img src="images/galeria3.jpeg" alt="Galería 3" class="galeria-img" />
-        <img src="images/galeria4.jpeg" alt="Galería 4" class="galeria-img" />
-        <img src="images/galeria5.jpeg" alt="Galería 5" class="galeria-img" />
-        <img src="images/galeria6.jpeg" alt="Galería 6" class="galeria-img" />
-        <img src="images/galeria7.jpeg" alt="Galería 7" class="galeria-img" />
-        <img src="images/galeria8.jpeg" alt="Galería 8" class="galeria-img" />
+        <img src="src/images/galeria1.jpeg" alt="Galería 1" class="galeria-img" />
+        <img src="src/images/galeria2.jpeg" alt="Galería 2" class="galeria-img" />
+        <img src="src/images/galeria3.jpeg" alt="Galería 3" class="galeria-img" />
+        <img src="src/images/galeria4.jpeg" alt="Galería 4" class="galeria-img" />
+        <img src="src/images/galeria5.jpeg" alt="Galería 5" class="galeria-img" />
+        <img src="src/images/galeria6.jpeg" alt="Galería 6" class="galeria-img" />
+        <img src="src/images/galeria7.jpeg" alt="Galería 7" class="galeria-img" />
+        <img src="src/images/galeria8.jpeg" alt="Galería 8" class="galeria-img" />
       </div>
     </section>
 
@@ -160,17 +161,22 @@
       <h2>Contacto</h2>
       <div class="contacto-container">
         <form id="contactForm">
-          <input type="text" name="nombre" placeholder="Nombre" required />
-          <input type="email" name="email" placeholder="Mail" required />
-          <input type="tel" name="telefono" placeholder="Teléfono" required />
-          <textarea name="consulta" placeholder="Consulta" required></textarea>
-          <button type="submit">Enviar</button>
-        </form>
+  <input type="text" name="nombre" placeholder="Nombre" required />
+  <input type="email" name="email" placeholder="Mail" required />
+  <input type="tel" name="telefono" placeholder="Teléfono" required />
+  <textarea name="consulta" placeholder="Consulta" rows="6" required></textarea>
+  <button type="submit">Enviar</button>
 
-        <div id="mensajeExito">
-          <span class="tilde">&#10003;</span>
-          Mensaje enviado
-        </div>
+  <div id="loader" style="display:none; text-align:center; margin-top:10px;">
+    <i class="fa fa-spinner fa-spin" style="font-size:24px;"></i> Enviando...
+  </div>
+</form>
+
+<div id="mensajeExito">
+  <span class="tilde">&#10003;</span>
+  Mensaje enviado
+</div>
+
         <div class="mapa">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.987395239315!2d-68.79035818482115!3d-32.77777588096673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0f1aab1e2f7f%3A0x5f57c0b3294d9f19!2sArist%C3%B3bulo%20del%20Valle%20798%2C%20Las%20Heras%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1692682000000!5m2!1ses-419!2sar"
@@ -206,7 +212,23 @@
       </p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+  // Inicialización con tu public key
+  emailjs.init("u11F4r_pc8Wv4NzFQ");
+</script>
+
+<!-- Bootstrap (opcional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Tu JS principal -->
+<script src="src/scripts/menu.js"></script>
+<script src="src/scripts/faq.js"></script>
+<script src="src/scripts/galeria.js"></script>
+<script src="src/scripts/contacto.js"></script>
+<script src="src/scripts/main.js"></script>
+
   </body>
 </html>

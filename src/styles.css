@@ -89,14 +89,14 @@ nav a:hover {
 /* Móvil */
 @media (max-width: 768px) {
   nav ul {
-    position: fixed; /* menú sobre el contenido */
-    top: 60px; /* justo debajo del header */
+    position: fixed;
+    top: 60px;
     left: 0;
     width: 100%;
     background-color: var(--marron);
     flex-direction: column;
     display: none;
-    gap: 0; /* sin demasiado espacio */
+    gap: 0;
     z-index: 998;
     border-top: 1px solid var(--beige);
   }
@@ -114,18 +114,17 @@ nav a:hover {
   nav a {
     display: block;
     width: 100%;
-    padding: 12px 0; /* altura más proporcionada */
-    font-size: 1.1rem; /* tamaño de letra más cómodo */
+    padding: 12px 0;
+    font-size: 1.1rem;
   }
 
   .hamburger {
     display: flex;
-    z-index: 999; /* encima del menú */
+    z-index: 999;
   }
 }
 
 /* ----------------- Portada ----------------- */
-
 .portada {
   position: relative;
   height: 100vh;
@@ -143,18 +142,16 @@ nav a:hover {
   max-width: 800px;
   width: 90%;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 15px; /* controla distancia entre h1, h2 y botón */
+  row-gap: 15px;
 }
 
-/* Títulos y botón */
 .portada h1 {
   color: var(--beige);
   font-size: 3rem;
-  margin: 0; /* eliminamos margin para usar row-gap */
+  margin: 0;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -163,7 +160,7 @@ nav a:hover {
   font-size: 1.75rem;
   font-style: italic;
   font-weight: normal;
-  margin: 0; /* eliminamos margin para usar row-gap */
+  margin: 0;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -185,12 +182,12 @@ nav a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ----------------- Ajustes móviles ----------------- */
+/* Ajustes móviles */
 @media (max-width: 768px) {
   .portada .overlay {
     padding: 20px;
     width: 90%;
-    row-gap: 12px; /* menor espacio entre h1, h2 y botón en móvil */
+    row-gap: 12px;
   }
 
   .portada h1 {
@@ -253,17 +250,15 @@ nav a:hover {
 .galeria-grid {
   display: grid;
   gap: 15px;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
+  grid-template-columns: repeat(4, 1fr);
 }
 
-/* Tablet: 2 columnas */
 @media (max-width: 992px) {
   .galeria-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Móvil: 1 columna */
 @media (max-width: 576px) {
   .galeria-grid {
     grid-template-columns: 1fr;
@@ -283,15 +278,14 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* Overlay / Lightbox */
 .lightbox {
-  display: none; /* oculto por defecto */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
   z-index: 10000;
@@ -301,7 +295,7 @@ nav a:hover {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .cerrar {
@@ -365,6 +359,7 @@ form {
 
 form input,
 form textarea {
+  font-family: inherit;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -388,6 +383,35 @@ form button:hover {
 .mapa {
   flex: 1 1 300px;
 }
+
+/* ----------------- Loader ----------------- */
+#loader {
+  display: block;
+  position: absolute; /* en vez de fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12000;
+  width: 80px;
+  height: 80px;
+  border: 10px solid rgba(0, 0, 0, 0.1);
+  border-top: 10px solid var(--morado);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+
+#loaderOverlay {
+  transition: background-color 0.3s ease;
+}
+
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 
 /* ----------------- Footer ----------------- */
 footer {
@@ -420,17 +444,16 @@ footer a:hover {
   text-align: center;
   font-size: 30px;
   z-index: 100;
-  transition: transform 0.3s ease, filter 0.3s ease; /* animación suave */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Hover: agrandar y oscurecer */
 .float-wa:hover {
-  transform: scale(1.2); /* 20% más grande */
-  filter: brightness(85%); /* oscurece un poco */
+  transform: scale(1.2);
+  filter: brightness(85%);
   cursor: pointer;
 }
 
-/* Estilos para el mensaje en pantalla */
+/* ----------------- Mensaje éxito ----------------- */
 #mensajeExito {
   display: none;
   position: fixed;
@@ -445,7 +468,8 @@ footer a:hover {
   font-weight: bold;
   border-radius: 8px;
   text-align: center;
-  z-index: 1000;
+  z-index: 11000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
 #mensajeExito .tilde {
@@ -453,4 +477,17 @@ footer a:hover {
   font-size: 48px;
   display: block;
   margin-bottom: 10px;
+}
+
+
+/* Ajustes móviles para mensaje éxito */
+@media (max-width: 576px) {
+  #mensajeExito {
+    font-size: 18px;
+    padding: 15px 25px;
+  }
+
+  #mensajeExito .tilde {
+    font-size: 36px;
+  }
 }
