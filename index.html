@@ -25,7 +25,6 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
-   
   </head>
   <body>
     <!-- Botón flotante WhatsApp -->
@@ -93,14 +92,46 @@
     <section id="galeria">
       <h2>Galería</h2>
       <div class="galeria-grid">
-        <img src="src/images/galeria1.jpeg" alt="Galería 1" class="galeria-img" />
-        <img src="src/images/galeria2.jpeg" alt="Galería 2" class="galeria-img" />
-        <img src="src/images/galeria3.jpeg" alt="Galería 3" class="galeria-img" />
-        <img src="src/images/galeria4.jpeg" alt="Galería 4" class="galeria-img" />
-        <img src="src/images/galeria5.jpeg" alt="Galería 5" class="galeria-img" />
-        <img src="src/images/galeria6.jpeg" alt="Galería 6" class="galeria-img" />
-        <img src="src/images/galeria7.jpeg" alt="Galería 7" class="galeria-img" />
-        <img src="src/images/galeria8.jpeg" alt="Galería 8" class="galeria-img" />
+        <img
+          src="src/images/galeria1.jpeg"
+          alt="Galería 1"
+          class="galeria-img"
+        />
+        <img
+          src="src/images/galeria2.jpeg"
+          alt="Galería 2"
+          class="galeria-img"
+        />
+        <img
+          src="src/images/galeria3.jpeg"
+          alt="Galería 3"
+          class="galeria-img"
+        />
+        <img
+          src="src/images/galeria4.jpeg"
+          alt="Galería 4"
+          class="galeria-img"
+        />
+        <img
+          src="src/images/galeria5.jpeg"
+          alt="Galería 5"
+          class="galeria-img"
+        />
+        <img
+          src="src/images/galeria6.jpeg"
+          alt="Galería 6"
+          class="galeria-img"
+        />
+        <img
+          src="src/images/galeria7.jpeg"
+          alt="Galería 7"
+          class="galeria-img"
+        />
+        <img
+          src="src/images/galeria8.jpeg"
+          alt="Galería 8"
+          class="galeria-img"
+        />
       </div>
     </section>
 
@@ -159,23 +190,44 @@
     <!-- Contacto -->
     <section id="contacto">
       <h2>Contacto</h2>
+      <div class="social-media-contact">
+        <a href="mailto:marisadagostino3@hotmail.com"
+          ><img src="src/images/email.png" alt="logo email"
+        /></a>
+        <a href="https://wa.me/5492616216034?text=Hola" target="_blank"
+          ><img src="src/images/whatsapp.png" alt="logo whatsapp"
+        /></a>
+
+        <a href="https://www.instagram.com/salonlamoramza/" target="_blank"
+          ><img src="src/images/instagram.png" alt="logo whatsapp"
+        /></a>
+      </div>
       <div class="contacto-container">
         <form id="contactForm">
-  <input type="text" name="nombre" placeholder="Nombre" required />
-  <input type="email" name="email" placeholder="Mail" required />
-  <input type="tel" name="telefono" placeholder="Teléfono" required />
-  <textarea name="consulta" placeholder="Consulta" rows="6" required></textarea>
-  <button type="submit">Enviar</button>
+          <input type="text" name="nombre" placeholder="Nombre" required />
+          <input type="email" name="email" placeholder="Mail" required />
+          <input type="tel" name="telefono" placeholder="Teléfono" required />
+          <textarea
+            name="consulta"
+            placeholder="Consulta"
+            rows="6"
+            required
+          ></textarea>
+          <button type="submit">Enviar</button>
 
-  <div id="loader" style="display:none; text-align:center; margin-top:10px;">
-    <i class="fa fa-spinner fa-spin" style="font-size:24px;"></i> Enviando...
-  </div>
-</form>
+          <div
+            id="loader"
+            style="display: none; text-align: center; margin-top: 10px"
+          >
+            <i class="fa fa-spinner fa-spin" style="font-size: 24px"></i>
+            Enviando...
+          </div>
+        </form>
 
-<div id="mensajeExito">
-  <span class="tilde">&#10003;</span>
-  Mensaje enviado
-</div>
+        <div id="mensajeExito">
+          <span class="tilde">&#10003;</span>
+          Mensaje enviado
+        </div>
 
         <div class="mapa">
           <iframe
@@ -192,17 +244,6 @@
 
     <!-- Footer -->
     <footer>
-      <div class="footer-contact">
-        <a href="mailto:marisadagostino3@hotmail.com"
-          ><i class="fi fi-rr-envelope"></i
-        ></a>
-        <a href="https://wa.me/5492616216034?text=Hola" target="_blank"
-          ><i class="fi fi-brands-whatsapp"></i
-        ></a>
-        <a href="https://www.instagram.com/salonlamoramza/" target="_blank"
-          ><i class="fi fi-brands-instagram"></i
-        ></a>
-      </div>
       <p>
         Salon La Mora © 2025 – made by<a
           href="https://github.com/FrankDagos"
@@ -213,22 +254,24 @@
     </footer>
 
     <!-- EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
 
-<script>
-  // Inicialización con tu public key
-  emailjs.init("u11F4r_pc8Wv4NzFQ");
-</script>
+    <script>
+      // Inicialización con tu public key
+      emailjs.init("u11F4r_pc8Wv4NzFQ");
+    </script>
 
-<!-- Bootstrap (opcional) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Tu JS principal -->
-<script src="src/scripts/menu.js"></script>
-<script src="src/scripts/faq.js"></script>
-<script src="src/scripts/galeria.js"></script>
-<script src="src/scripts/contacto.js"></script>
-<script src="src/scripts/main.js"></script>
-
+    <!-- Tu JS principal -->
+    <script src="src/scripts/menu.js"></script>
+    <script src="src/scripts/faq.js"></script>
+    <script src="src/scripts/galeria.js"></script>
+    <script src="src/scripts/contacto.js"></script>
+    <script src="src/scripts/main.js"></script>
   </body>
 </html>
