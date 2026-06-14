@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://salon-la-mora.vercel.app/sitemap.xml

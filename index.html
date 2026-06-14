@@ -3,23 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salón La Mora</title>
+    <title>Salón La Mora | Salón de Eventos en Las Heras, Mendoza</title>
     <meta
       name="description"
-      content="Salón La Mora en Las Heras, Mendoza. Alquiler para eventos sociales, cumpleaños, casamientos, bautismos y más. Contacto vía WhatsApp."
+      content="Salón La Mora en Las Heras, Mendoza. Alquiler para eventos sociales, cumpleaños, casamientos, bautismos y más. Pileta, catering, estacionamiento. Contacto vía WhatsApp."
     />
-    <meta
-      name="keywords"
-      content="salón de eventos, La Mora, Mendoza, cumpleaños, casamientos, bautismos, pileta, catering, alquiler de salón"
-    />
-    <meta property="og:title" content="Salón La Mora" />
-    <meta
-      property="og:description"
-      content="Salón La Mora en Las Heras, Mendoza. Alquiler para eventos sociales, cumpleaños, casamientos, bautismos y más."
-    />
-    <meta property="og:image" content="src/images/portada.jpeg" />
+    <link rel="canonical" href="https://salon-la-mora.vercel.app/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="src/images/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="src/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="src/images/favicon/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://salon-la-mora.vercel.app/" />
+    <meta property="og:title" content="Salón La Mora | Salón de Eventos en Las Heras, Mendoza" />
+    <meta
+      property="og:description"
+      content="Alquiler para eventos sociales, cumpleaños, casamientos, bautismos y más. Pileta, catering, estacionamiento. Contacto vía WhatsApp."
+    />
+    <meta property="og:image" content="https://salon-la-mora.vercel.app/src/images/portada.jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Salón La Mora - Salón de eventos en Mendoza" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Salón La Mora" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://salon-la-mora.vercel.app/" />
+    <meta name="twitter:title" content="Salón La Mora | Salón de Eventos en Las Heras, Mendoza" />
+    <meta
+      name="twitter:description"
+      content="Alquiler para eventos sociales, cumpleaños, casamientos, bautismos y más. Pileta, catering, estacionamiento."
+    />
+    <meta name="twitter:image" content="https://salon-la-mora.vercel.app/src/images/portada.jpeg" />
+    <meta name="twitter:image:alt" content="Salón La Mora - Salón de eventos en Mendoza" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,6 +61,44 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
+
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EventVenue",
+      "name": "Salón La Mora",
+      "description": "Salón de eventos en Las Heras, Mendoza. Alquiler para eventos sociales, cumpleaños, casamientos, bautismos y más.",
+      "url": "https://salon-la-mora.vercel.app/",
+      "image": "https://salon-la-mora.vercel.app/src/images/portada.jpeg",
+      "telephone": "+54-9-261-621-6034",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Las Heras",
+        "addressRegion": "Mendoza",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -32.8479896,
+        "longitude": -68.7749703
+      },
+      "maximumAttendeeCapacity": 250,
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "12:00",
+          "closes": "05:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/salonlamoramza/",
+        "https://wa.me/5492616216034"
+      ]
+    }
+    </script>
   </head>
   <body>
     <!-- Botón flotante WhatsApp -->
