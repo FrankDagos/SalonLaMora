@@ -10,6 +10,7 @@ window.Menu = (function () {
 
     hamburger.addEventListener("click", function () {
       navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
     });
 
     var headerHeight = header.offsetHeight;
@@ -20,14 +21,21 @@ window.Menu = (function () {
         if (!target) return;
         var targetPosition = target.offsetTop - headerHeight;
         window.scrollTo({ top: targetPosition, behavior: "smooth" });
-        if (navLinks.classList.contains("active")) navLinks.classList.remove("active");
+        if (navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+          hamburger.classList.remove("active");
+        }
       });
     });
 
     var lastScrollTop = 0;
     window.addEventListener("scroll", function () {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      header.style.top = scrollTop > lastScrollTop && scrollTop > 100 ? "-100px" : "0";
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        header.style.top = "-100px";
+      } else {
+        header.style.top = "0";
+      }
       lastScrollTop = scrollTop;
     });
   }
